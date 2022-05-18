@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "main.h"
 /**
  * search_cwd - look for current working dir
  * @filename: file name
