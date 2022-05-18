@@ -3,15 +3,14 @@
 /**
  * shell - a function that executes the
  * loop's functionalities
- * @build: input build params
- *
- * Description: reviews user inputs and validates strings;
- * otherwise, check the path, forkand execute it
+ * @build: input build param
+ * reviews user inputs to validates strings;
+ * otherwise, check the path, fork and execute it
  * Return: Nothing
  */
 void shell(config *build)
 {
-  while (1)
+	while (1)
 	{
 		validate_line(build);
 		if (split_string(build) == 0)
@@ -29,7 +28,6 @@ void shell(config *build)
 
 /**
  * validate_line - a function to handle the user inputs
- *
  * Description: gets user inputs, checks input against
  * build constraints, string edge cases and takes endless inputs
  * @build: input build params
@@ -51,7 +49,6 @@ void validate_line(config *build)
 	len = getline(&build->buffer, &buffer_size, stdin);
 	if (len == EOF)
 	{
-		/* checks relation with terminal device */
 		if (isatty(STDIN_FILENO))
 		{
 			put_new_line();
@@ -103,7 +100,6 @@ void strip_comments(char *str)
 
 /**
  * fork_and_execute - fork current build and execute processes
- *
  * Description: forks executing processes, then run the bin/ls program
  * in child process, using the execve syscall.
  * @build: input build
@@ -146,7 +142,6 @@ void fork_and_execute(config *build)
 		free_args(build->env_list);
 	}
 }
-
 /**
  * convert_llist_to_arr - convert linked list to array
  * @build: input build params
